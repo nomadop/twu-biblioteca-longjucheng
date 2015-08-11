@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class BibliotecaApp {
 
@@ -19,5 +20,10 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         System.out.println("Hello, world!");
+
+        Stack<Menu> menuStack = new Stack<Menu>();
+
+        String[] mainMenuOptions = {"List Books"};
+        menuStack.push(new Menu(mainMenuOptions));
     }
 }
