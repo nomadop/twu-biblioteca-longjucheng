@@ -18,6 +18,8 @@ public class Book {
 
     private boolean isCheckedOut;
 
+    private String checkoutLibraryNumber;
+
     public Book(int id, String title, String author, int yearPublished) {
         setId(id);
         setTitle(title);
@@ -39,16 +41,25 @@ public class Book {
     }
 
     public boolean checkoutBook() {
+        if (User.getCurrentUser() == null) {
+            System.out.println("Please login first.");
+            return false;
+        }
         if (isCheckedOut) {
             return false;
         } else {
             setIsCheckedOut(true);
+            setCheckoutLibraryNumber(User.getCurrentUser().getLibraryNumber());
             return true;
         }
     }
 
     public boolean returnBook() {
-        if (isCheckedOut) {
+        if (User.getCurrentUser() == null) {
+            System.out.println("Please login first.");
+            return false;
+        }
+        if (isCheckedOut && checkoutLibraryNumber.equals(User.getCurrentUser().getLibraryNumber())) {
             setIsCheckedOut(false);
             return true;
         } else {
@@ -75,4 +86,8 @@ public class Book {
     public boolean getIsCheckedOut() { return this.isCheckedOut; }
 
     public void setIsCheckedOut(boolean isCheckedOut) { this.isCheckedOut = isCheckedOut; }
+
+    public String getCheckoutLibraryNumber() { return this.checkoutLibraryNumber; }
+
+    public void setCheckoutLibraryNumber(String checkoutLibraryNumber) { this.checkoutLibraryNumber = checkoutLibraryNumber; }
 }

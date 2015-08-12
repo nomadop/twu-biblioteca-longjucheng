@@ -20,11 +20,14 @@ public class Movie {
 
     private boolean isCheckedOut;
 
+    private String checkoutLibraryNumber;
+
     public Movie(int id, String title, String director, int yearPublished, int movieRating) {
         setId(id);
         setTitle(title);
         setDirector(director);
         setYearPublished(yearPublished);
+        setMovieRating(movieRating);
         setIsCheckedOut(false);
     }
 
@@ -42,16 +45,25 @@ public class Movie {
     }
 
     public boolean checkoutMovie() {
+        if (User.getCurrentUser() == null) {
+            System.out.println("Please login first.");
+            return false;
+        }
         if (isCheckedOut) {
             return false;
         } else {
             setIsCheckedOut(true);
+            setCheckoutLibraryNumber(User.getCurrentUser().getLibraryNumber());
             return true;
         }
     }
 
     public boolean returnMovie() {
-        if (isCheckedOut) {
+        if (User.getCurrentUser() == null) {
+            System.out.println("Please login first.");
+            return false;
+        }
+        if (isCheckedOut && checkoutLibraryNumber.equals(User.getCurrentUser().getLibraryNumber())) {
             setIsCheckedOut(false);
             return true;
         } else {
@@ -82,4 +94,8 @@ public class Movie {
     public boolean getIsCheckedOut() { return this.isCheckedOut; }
 
     public void setIsCheckedOut(boolean isCheckedOut) { this.isCheckedOut = isCheckedOut; }
+
+    public String getCheckoutLibraryNumber() { return this.checkoutLibraryNumber; }
+
+    public void setCheckoutLibraryNumber(String checkoutLibraryNumber) { this.checkoutLibraryNumber = checkoutLibraryNumber; }
 }

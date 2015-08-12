@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by twer on 15/8/12.
  */
 public class User {
-    private static User currentUser;
+    private static User currentUser = null;
 
     private static ArrayList<User> userList = new ArrayList<User>();
 
