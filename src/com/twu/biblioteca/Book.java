@@ -1,9 +1,14 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by twer on 15/8/11.
  */
 public class Book {
+    private static ArrayList<Book> bookList = new ArrayList<Book>();
+
     private int id;
 
     private String title;
@@ -17,6 +22,18 @@ public class Book {
         setTitle(title);
         setAuthor(author);
         setYearPublished(yearPublished);
+    }
+
+    public static ArrayList<Book> getBookList() { return bookList; }
+
+    public static void generateBookList() {
+        for (int i = 0; i < 10; i++) {
+            int id = i + 1;
+            String title = "Title" + id;
+            String author = "Author" + id;
+            int yearPublished = 2000 + id;
+            bookList.add(new Book(id, title, author, yearPublished));
+        }
     }
 
     public int getId() { return this.id; }
