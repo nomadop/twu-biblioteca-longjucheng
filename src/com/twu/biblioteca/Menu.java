@@ -29,10 +29,21 @@ public class Menu {
     }
 
     public void printMenu() {
+        System.out.println("====================");
         System.out.println(getIntroduce());
         for (int i = 0; i < getOptions().size(); i++) {
             System.out.println(i + ". " + getOptions().get(i).getTitle());
         }
+    }
+
+    public void checkInput(String input) {
+        int choose = Integer.parseInt(input);
+        if (choose > getOptions().size()) {
+            System.out.println("Select a valid option!");
+            return;
+        }
+
+        getOptionListeners().get(choose).call();
     }
 
     public String getIntroduce() { return this.introduce; }

@@ -13,7 +13,7 @@ public class BookDetailListener extends Listener {
     public void call() {
         String introduce = "Title: " + book.getTitle() + "\nAuthor: " + book.getAuthor() + "\nYear Published:" + book.getYearPublished();
         String[] menuOptions = {"Checkout", "Return"};
-        Listener[] menuListeners = {new CheckoutBookListener(getBook())};
+        Listener[] menuListeners = {new CheckoutBookListener(getBook()), new ReturnBookListener(getBook())};
 
         Menu.getMenuStack().push(new Menu(introduce, menuOptions, menuListeners));
     }

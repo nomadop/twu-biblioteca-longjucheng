@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.Scanner;
+
 public class BibliotecaApp {
 
     public static void main(String[] args) {
@@ -12,10 +14,17 @@ public class BibliotecaApp {
         Menu.getMenuStack().push(new Menu(introduce, mainMenuOptions, mainMenuListeners));
 
         while (true) {
+            if (Menu.getMenuStack().empty()) { break; }
             Menu currentMenu = Menu.getMenuStack().peek();
-            if (currentMenu == null) { break; }
 
             currentMenu.printMenu();
+            Scanner stdin = new Scanner(System.in);
+
+            System.out.println();
+            System.out.print("input: ");
+            String input = stdin.nextLine();
+
+            currentMenu.checkInput(input);
         }
     }
 }
