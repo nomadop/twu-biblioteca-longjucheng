@@ -9,10 +9,11 @@ public class BibliotecaApp {
 
         Book.generateBookList();
         Movie.generateMovieList();
+        User.generateUserList();
 
         String introduce = "Welcome!";
-        String[] mainMenuOptions = {"List Books", "List Movies"};
-        Listener[] mainMenuListeners = {new ListBooksListener(), new ListMovieListener()};
+        String[] mainMenuOptions = {"List Books", "List Movies", "Login", "User Detail"};
+        Listener[] mainMenuListeners = {new ListBooksListener(), new ListMovieListener(), new LoginListener(), new UserDetailListener()};
         Menu.getMenuStack().push(new Menu(introduce, mainMenuOptions, mainMenuListeners));
 
         while (true) {
