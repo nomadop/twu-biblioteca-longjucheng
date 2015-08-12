@@ -37,8 +37,14 @@ public class Menu {
     }
 
     public void checkInput(String input) {
-        int choose = Integer.parseInt(input);
-        if (choose > getOptions().size()) {
+        int choose;
+        try {
+            choose = Integer.parseInt(input);
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Select a valid option!");
+            return;
+        }
+        if (choose >= getOptions().size()) {
             System.out.println("Select a valid option!");
             return;
         }
