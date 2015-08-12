@@ -6,7 +6,16 @@ public class BibliotecaApp {
         System.out.println("Hello, world!");
 
         Book.generateBookList();
+        String introduce = "Welcome!";
         String[] mainMenuOptions = {"List Books"};
-        Menu.getMenuStack().push(new Menu(mainMenuOptions));
+        Listener[] mainMenuListeners = {new ListBooksListener()};
+        Menu.getMenuStack().push(new Menu(introduce, mainMenuOptions, mainMenuListeners));
+
+        while (true) {
+            Menu currentMenu = Menu.getMenuStack().peek();
+            if (currentMenu == null) { break; }
+
+            currentMenu.printMenu();
+        }
     }
 }
