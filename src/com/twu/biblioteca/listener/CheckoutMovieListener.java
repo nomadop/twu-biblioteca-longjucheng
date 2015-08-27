@@ -1,9 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.listener;
+
+import com.twu.biblioteca.Movie;
 
 /**
  * Created by twer on 15/8/12.
  */
-public class CheckoutMovieListener extends Listener {
+public class CheckoutMovieListener implements Listener {
     private Movie movie;
 
     public CheckoutMovieListener(Movie movie) {

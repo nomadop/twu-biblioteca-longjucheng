@@ -1,9 +1,12 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.listener;
+
+import com.twu.biblioteca.Book;
+import com.twu.biblioteca.Menu;
 
 /**
  * Created by twer on 15/8/12.
  */
-public class BookDetailListener extends Listener {
+public class BookDetailListener implements Listener {
     private Book book;
 
     public BookDetailListener(Book book) {

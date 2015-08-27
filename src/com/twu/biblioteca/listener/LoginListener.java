@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.listener;
+
+import com.twu.biblioteca.User;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -6,7 +8,7 @@ import java.util.Scanner;
 /**
  * Created by twer on 15/8/12.
  */
-public class LoginListener extends Listener {
+public class LoginListener implements Listener {
     public void call() {
         Scanner scanner = new Scanner(System.in);
         

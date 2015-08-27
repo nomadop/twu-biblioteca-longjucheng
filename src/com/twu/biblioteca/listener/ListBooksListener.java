@@ -1,11 +1,14 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.listener;
+
+import com.twu.biblioteca.Book;
+import com.twu.biblioteca.Menu;
 
 import java.util.ArrayList;
 
 /**
  * Created by twer on 15/8/12.
  */
-public class ListBooksListener extends Listener {
+public class ListBooksListener implements Listener {
     public void call() {
         String introduce = "Choose a book for further options.";
         ArrayList<Book> bookList = Book.getBookList();

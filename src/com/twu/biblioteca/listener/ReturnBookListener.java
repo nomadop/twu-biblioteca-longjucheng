@@ -1,9 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.listener;
+
+import com.twu.biblioteca.Book;
 
 /**
  * Created by twer on 15/8/12.
  */
-public class ReturnBookListener extends Listener {
+public class ReturnBookListener implements Listener {
     private Book book;
 
     public ReturnBookListener(Book book) {

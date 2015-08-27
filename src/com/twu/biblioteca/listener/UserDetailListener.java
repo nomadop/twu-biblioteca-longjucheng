@@ -1,9 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.listener;
+
+import com.twu.biblioteca.User;
 
 /**
  * Created by twer on 15/8/12.
  */
-public class UserDetailListener extends Listener {
+public class UserDetailListener implements Listener {
     public void call() {
         User user = User.getCurrentUser();
         if (user != null) {
